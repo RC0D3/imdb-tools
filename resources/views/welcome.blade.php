@@ -76,7 +76,7 @@
             </div>
         </form>
         <div class="absolute right-0 bottom-0 text-white font-mono cursor-pointer">
-            <a href="https://github.com/RC0D3/">Created By:RC0D3</a>
+            <a href="https://github.com/RC0D3/" target="_blank">Created By:RC0D3</a>
         </div>
     </div>
 
