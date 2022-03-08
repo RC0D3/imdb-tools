@@ -34,7 +34,7 @@
 </head>
 
 <body class="bg-gray-700">
-    <div id="root" class="bg-gray-800 container m-auto p-8 text-center min-h-screen flex flex-col items-center">
+    <div id="root" class="relative bg-gray-800 container m-auto p-8 text-center min-h-screen flex flex-col items-center">
         <div class="flex items-center">
             <span class="cfont text-3xl bg-amber-400 py-[0.1rem] px-2 rounded"> IMDb TOOLs</span>
         </div>
@@ -75,6 +75,9 @@
 
             </div>
         </form>
+        <div class="absolute right-0 bottom-0 text-white font-mono cursor-pointer">
+            <a href="https://github.com/RC0D3/">Created By:RC0D3</a>
+        </div>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
