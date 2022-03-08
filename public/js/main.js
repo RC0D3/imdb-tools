@@ -53,6 +53,7 @@ var app = new Vue({
         },
 
         generateCommand() {
+            this.showGeneratedCommand = false
             this.loading = true
             axios.post('/api/info', {
                     url: this.url
