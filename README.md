@@ -15,8 +15,7 @@ This is a simple project that generate formatted text to use in twitch.
 
 I do it because one streamer that I watch do the command by hand, now can be generated using only one url from IMDb website.
 
-` `  
-` `  
+<br>
 
 # Setup
 
@@ -24,8 +23,7 @@ I do it because one streamer that I watch do the command by hand, now can be gen
 
 - Put the token in .env (make a copy of .env.example and rename), at IMDB_TOOLS_TOKEN parameter.
 
-` `  
-` `  
-` `  
-# Change log
+<br>
+
+# Changelog
 - Cache by `IMDb id` by one day.
