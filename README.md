@@ -11,14 +11,21 @@
 
 This is a simple project that generate formatted text to use in twitch.
 
-
 ### Why?
 
 I do it because one streamer that I watch do the command by hand, now can be generated using only one url from IMDb website.
 
+` `  
+` `  
 
 # Setup
 
 - You only need an API token, you can get by [clicking here](https://www.myapifilms.com/token.do).
 
 - Put the token in .env (make a copy of .env.example and rename), at IMDB_TOOLS_TOKEN parameter.
+
+` `  
+` `  
+` `  
+# Change log
+- Cache by `IMDb id` by one day.
