@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use DateInterval;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class MovieInfoController extends Controller
 {
@@ -23,7 +25,7 @@ class MovieInfoController extends Controller
         }
 
 
-        $movie = new Movie($this->id);
+        $movie = Cache::remember($this->id, DateInterval::createFromDateString('1 day'), fn () =>  new Movie($this->id));
         return response()->json($movie);
     }
 
