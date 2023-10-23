@@ -21,14 +21,15 @@ class Movie
 
         $response = Http::get($apiUrl)->json()['data']['movies'][0];
         $this->data = [
-            'year' => $response['year'],
-            'genres' => $this->formatGenres($response['genres']),
-            // 'runtime' => $response['runtime'] ? $this->formatRuntime2($response['runtime']) : $this->formatRuntime($response['technical']['runtime'][0]),
-            // 'rating' => $this->formatRating($response['rating']),
-            'rated' => $response['rated'],
-            'title' => $response['title']
+            'year' => $response['year'] ?? '',
+            'genres' => $this->formatGenres($response['genres'] ?? ''),
+            'runtime' => in_array('runtime', $response)
+                ? ($response['runtime'] ? $this->formatRuntime2($response['runtime']) : $this->formatRuntime($response['technical']['runtime'][0]))
+                : '',
+            'rating' => $this->formatRating($response['rating'] ?? ''),
+            'rated' => $response['rated'] ?? '',
+            'title' => $response['title'] ?? ''
         ];
-        $this->data = $response;
     }
 
     private function formatGenres(array $genres): string
