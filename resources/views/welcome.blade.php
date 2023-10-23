@@ -41,8 +41,7 @@
 
         <form class="mt-[15vh] p-5 flex flex-col items-center justify-center" method="POST">
             <input type="url" v-model="url" placeholder="URL IMDb" autocomplete="off" autofocus class="p-2 mb-1 rounded-t-md bg-slate-900 text-slate-300" />
-            <input type="time" v-model="startTime" class="p-2 bg-slate-900 text-slate-300 mb-1 w-[56%] min-w-[215px]">
-
+            <input type="time" v-model="startTime" class="p-2 mb-1 bg-slate-900 text-slate-300 min-w-[215px] max-w-[269px] w-full inline-block">
 
             <input type="text" v-model="next" placeholder="A seguir:" class="p-2 rounded-b-md bg-slate-900 text-slate-300" />
 
@@ -71,11 +70,11 @@
                     <span v-text="info.rated"></span> anos <span v-if="next != ''">| A Seguir: <span v-text="next"></span></span></span>
                 </div>
                 <span :class="{'invisible' : !showCopied, 'animate-fade-in' : showCopied, 'animate-fade-out' : outAnimation}" class="absolute select-none left-0 top-0 bg-opacity-20 w-full h-full flex justify-center items-center rounded bg-black text-xl">Texto copiado!</span>
-                <span v-text="errorMessage" :class="{'invisible' : !showError}" class="absolute select-none left-0 top-0 w-full h-full flex justify-center items-center rounded bg-rose-800 text-xl"></span>
+                <span v-text="errorMessage" :class="{'invisible' : !showError}" class="absolute select-none left-0 top-0 flex justify-center items-center rounded bg-rose-800 text-xl h-full w-full"></span>
 
             </div>
         </form>
-        <div class="absolute right-0 bottom-0 text-white font-mono cursor-pointer">
+        <div class="absolute right-1 bottom-0 text-white font-mono cursor-pointer">
             <a href="https://github.com/RC0D3/" target="_blank">Created By:RC0D3</a>
         </div>
     </div>

@@ -317,11 +317,6 @@ input::-moz-placeholder, textarea::-moz-placeholder {
   color: #9ca3af; /* 2 */
 }
 
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
-}
-
 input::placeholder,
 textarea::placeholder {
   opacity: 1; /* 1 */
@@ -472,8 +467,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .top-0 {
   top: 0px;
 }
-.right-0 {
-  right: 0px;
+.right-1 {
+  right: 0.25rem;
 }
 .bottom-0 {
   bottom: 0px;
@@ -499,6 +494,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-3 {
   margin-right: 0.75rem;
 }
+.inline-block {
+  display: inline-block;
+}
 .flex {
   display: flex;
 }
@@ -514,26 +512,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .min-h-screen {
   min-height: 100vh;
 }
-.w-\[56\%\] {
-  width: 56%;
+.w-full {
+  width: 100%;
 }
 .w-5 {
   width: 1.25rem;
 }
-.w-full {
-  width: 100%;
-}
 .min-w-\[215px\] {
   min-width: 215px;
 }
+.max-w-\[269px\] {
+  max-width: 269px;
+}
 .max-w-sm {
   max-width: 24rem;
-}
-@-webkit-keyframes spin {
-
-  to {
-    transform: rotate(360deg);
-  }
 }
 @keyframes spin {
 
@@ -542,18 +534,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 .animate-spin {
-  -webkit-animation: spin 1s linear infinite;
-          animation: spin 1s linear infinite;
-}
-@-webkit-keyframes fadein {
-
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  animation: spin 1s linear infinite;
 }
 @keyframes fadein {
 
@@ -566,18 +547,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 .animate-fade-in {
-  -webkit-animation: fadein 0.2s linear forwards;
-          animation: fadein 0.2s linear forwards;
-}
-@-webkit-keyframes fadeout {
-
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+  animation: fadein 0.2s linear forwards;
 }
 @keyframes fadeout {
 
@@ -590,8 +560,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 .animate-fade-out {
-  -webkit-animation: fadeout 0.2s linear forwards;
-          animation: fadeout 0.2s linear forwards;
+  animation: fadeout 0.2s linear forwards;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -599,7 +568,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .flex-col {
