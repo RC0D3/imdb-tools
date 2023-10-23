@@ -15,8 +15,6 @@ This is a simple project that generate formatted text to use in twitch.
 
 I do it because one streamer that I watch do the command by hand, now can be generated using only one url from IMDb website.
 
-<br>
-
 # Setup
 
 - You only need an API token, you can get by [clicking here](https://www.myapifilms.com/token.do).
@@ -25,5 +23,11 @@ I do it because one streamer that I watch do the command by hand, now can be gen
 
 <br>
 
+# Preview
+
+[Acess here](http://129.148.50.95/) (temporaly link)
+
 # Changelog
-- Cache by `IMDb id` by one day.
+
+- Cache by `IMDb id data` by one day.
+- Improved return errors and fixed regex to accep 7 or 8 digits
