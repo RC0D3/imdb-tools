@@ -31,7 +31,7 @@ class MovieInfoController extends Controller
 
     private function sanatizeUrl(string $url): string
     {
-        if (preg_match('/tt\\d{7}/i', $url, $matches)) {
+        if (preg_match('/tt(\\d{8}|\\d{7})/i', $url, $matches)) {
             return $matches[0];
         }
         return '';

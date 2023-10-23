@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Facades\Http;
+use Ramsey\Uuid\Type\Integer;
 
 class Movie
 {
@@ -22,11 +23,12 @@ class Movie
         $this->data = [
             'year' => $response['year'],
             'genres' => $this->formatGenres($response['genres']),
-            'runtime' => $this->formatRuntime($response['technical']['runtime'][0]),
-            'rating' => $this->formatRating($response['rating']),
+            // 'runtime' => $response['runtime'] ? $this->formatRuntime2($response['runtime']) : $this->formatRuntime($response['technical']['runtime'][0]),
+            // 'rating' => $this->formatRating($response['rating']),
             'rated' => $response['rated'],
             'title' => $response['title']
         ];
+        $this->data = $response;
     }
 
     private function formatGenres(array $genres): string
@@ -41,6 +43,18 @@ class Movie
         $runtime = str_replace('min', 'm', $runtime);
         $runtime = substr($runtime, 0, strpos($runtime, '('));
         return $runtime;
+    }
+
+    private function formatRuntime2(int $runtime): string
+    {
+        $hours = (int) ($runtime / 60);
+        if ($hours < 10)
+            $hours = '0' . $hours;
+        $minutes = $runtime % 60;
+        if ($minutes < 10)
+            $minutes = '0' . $minutes;
+
+        return "$hours:$minutes";
     }
 
     private function formatRating(string $rating): string
