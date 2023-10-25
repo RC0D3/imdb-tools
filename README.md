@@ -25,7 +25,7 @@ I do it because one streamer that I watch do the command by hand, now can be gen
 
 # Preview
 
-[Acess here](http://129.148.50.95/) (temporaly link)
+[Access here](http://129.148.50.95/) (temporaly link)
 
 # Changelog
 
