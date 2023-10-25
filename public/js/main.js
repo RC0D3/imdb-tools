@@ -2,12 +2,10 @@ var app = new Vue({
     el: '#root',
     data: {
         showGeneratedCommand: false,
-        doubleClickTimeout: null,
         showCopied: false,
         outAnimation: false,
 
         loading: false,
-
 
         url: "",
         info: {
@@ -25,56 +23,50 @@ var app = new Vue({
         errorMessage: '',
         showError: false,
     },
+    mounted: function () {
+        this.$refs.clipboard.classList.toggle('hidden');
+        this.$refs.loading.classList.toggle('hidden');
+    },
 
     methods: {
         copyDoubleClick() {
-            if (!this.doubleClickTimeout) {
-                this.doubleClickTimeout = setTimeout(() => {}, 50)
-            } else {
-                clearTimeout(this.doubleClickTimeout)
-                doubleClickTimeout = null
+            navigator.clipboard.writeText(this.$refs.clipboard.innerText).then(function () {
+                app._data.showCopied = true
+                setTimeout(() => {
+                    app._data.showCopied = false
+                    app._data.outAnimation = false
+                }, 1200)
+                setTimeout(() => {
+                    app._data.outAnimation = true
+                }, 1000)
 
-                navigator.clipboard.writeText(this.$refs.clipboard.innerText).then(function () {
-                    app._data.showCopied = true
+            }, function (err) {
+                alert('Usando navegador véio tio(a)?')
+            })
 
-
-                    setTimeout(() => {
-                        app._data.showCopied = false
-                        app._data.outAnimation = false
-                    }, 1200)
-                    setTimeout(() => {
-                        app._data.outAnimation = true
-                    }, 1000)
-
-                }, function (err) {
-                    alert('Usando navegador véio tio(a)?')
-                })
-            }
         },
 
         generateCommand() {
             this.showGeneratedCommand = false
             this.loading = true
             axios.post('/api/info', {
-                    url: this.url
-                }).then(response => {
-                    this.info = response.data.data
-                    this.loading = false
-                    this.showGeneratedCommand = !this.showGeneratedCommand
-                })
+                url: this.url
+            }).then(response => {
+                this.info = response.data.data
+                this.loading = false
+                this.showGeneratedCommand = !this.showGeneratedCommand
+            })
                 .catch(error => {
                     this.errorMessage = error.response.data.error
                     this.loading = false
                     this.showError = true
                     this.showGeneratedCommand = !this.showGeneratedCommand
-
-
                     setTimeout(() => {
                         this.showGeneratedCommand = !this.showGeneratedCommand
                         this.showError = false
                         this.errorMessage = ''
                     }, 1200)
                 })
-        }
+        },
     },
 })

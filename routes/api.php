@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('info', [MovieInfoController::class, 'search']);
 Route::post('info', [MovieInfoController::class, 'search']);
