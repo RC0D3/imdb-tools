@@ -26,7 +26,6 @@ class MovieInfoController extends Controller
 
 
         $movie = Cache::remember($this->id, DateInterval::createFromDateString('1 day'), fn () =>  new Movie($this->id));
-        $movie = new Movie($this->id);
         return response()->json($movie);
     }
 

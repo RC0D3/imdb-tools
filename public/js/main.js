@@ -23,7 +23,7 @@ var app = new Vue({
         errorMessage: '',
         showError: false,
     },
-    mounted: function () {
+    mounted() {
         this.$refs.clipboard.classList.toggle('hidden');
         this.$refs.loading.classList.toggle('hidden');
     },
